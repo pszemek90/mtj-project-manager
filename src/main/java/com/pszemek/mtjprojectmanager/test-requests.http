@@ -1,0 +1,4 @@
+#get all users
+GET {{host-url}}/users
+###
+GET {{host-url}}/projects
