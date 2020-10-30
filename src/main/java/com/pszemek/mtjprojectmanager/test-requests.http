@@ -1,4 +1,20 @@
+
+#Users
 #get all users
 GET {{host-url}}/users
 ###
+#create a user
+POST {{host-url}}//users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+###
+#Projects
+# get all projects
 GET {{host-url}}/projects
+###
+#

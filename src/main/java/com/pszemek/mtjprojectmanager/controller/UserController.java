@@ -1,12 +1,10 @@
 package com.pszemek.mtjprojectmanager.controller;
 
 import com.pszemek.mtjprojectmanager.dto.UserDto;
+import com.pszemek.mtjprojectmanager.entity.UserEntity;
 import com.pszemek.mtjprojectmanager.mapper.UserMapper;
 import com.pszemek.mtjprojectmanager.service.UserService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,10 @@ public class UserController {
     @GetMapping
     public List<UserDto> getUsers(){
         return UserMapper.map(userService.getAll());
+    }
+
+    @PostMapping
+    public UserDto createUser(@RequestBody UserEntity user){
+        return UserMapper.map(userService.create(user));
     }
 }
