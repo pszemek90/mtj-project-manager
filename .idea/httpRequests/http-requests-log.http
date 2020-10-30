@@ -1,0 +1,430 @@
+GET http://localhost:8080/api/users
+
+<> 2020-10-30T100205.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-30T100201.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-30T100157.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-30T095712.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-30T095647.200.json
+
+###
+
+GET http://localhost:8080/api/users/
+
+<> 2020-10-30T095022.500.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-30T094941.500.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-30T094735.500.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-30T094538.500.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-30T093529.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T113353.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T113350.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T113347.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T113307.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T113200.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T112512.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T112509.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T111755.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T111752.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T111706.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T111702.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T110650.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T110641.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T110305.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T110130.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T110122.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T110116.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T110058.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T110047.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T104902.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T104818.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-29T104801.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+{:
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}:
+
+<> 2020-10-29T104502.400.html
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+{:
+"uuid": "asd",
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}:
+
+<> 2020-10-29T104432.400.html
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+{:
+"uuid": "asd",
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}:
+
+<> 2020-10-29T104344.400.html
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T104313.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+{:
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}:
+
+<> 2020-10-29T104213.400.html
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+{:
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}:
+
+<> 2020-10-29T103629.400.html
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T064343.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T064339.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T064208.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T064202.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T064140.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T064033.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-29T063925.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T063919.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T063541.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T063519.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T062215.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-29T062139.404.json
+
+###
+

@@ -9,7 +9,8 @@ import java.util.stream.Collectors;
 public class UserMapper {
 
     public static UserDto map(UserEntity entity){
-        return new UserDto().setUuid(entity.getUuid())
+        return new UserDto()
+                .setUuid(entity.getUuid())
                 .setFirstName(entity.getFirstName())
                 .setLastName(entity.getLastName())
                 .setEmail(entity.getEmail());

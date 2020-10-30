@@ -11,7 +11,6 @@ import java.util.UUID;
 public class ProjectEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Type(type = "uuid-char")
     @ColumnDefault("random_uuid()")
     private UUID uuid;
@@ -19,17 +18,9 @@ public class ProjectEntity {
     private String title;
     private String customer;
 
-    public Long getId() {
-        return id;
-    }
 
     public UUID getUuid() {
         return uuid;
-    }
-
-    public ProjectEntity setUuid(UUID uuid) {
-        this.uuid = uuid;
-        return this;
     }
 
     public String getNumber() {

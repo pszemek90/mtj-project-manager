@@ -10,8 +10,7 @@ import java.util.UUID;
 @Table(name = "users")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type = "uuid-char")
     @ColumnDefault("random_uuid()")
     private UUID uuid;
@@ -21,17 +20,8 @@ public class UserEntity {
     private String lastName;
     private String email;
 
-    public Long getId() {
-        return id;
-    }
-
     public UUID getUuid() {
         return uuid;
-    }
-
-    public UserEntity setUuid(UUID uuid) {
-        this.uuid = uuid;
-        return this;
     }
 
     public String getFirstName() {
