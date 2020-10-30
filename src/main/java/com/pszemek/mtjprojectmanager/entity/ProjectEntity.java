@@ -10,7 +10,7 @@ import java.util.UUID;
 @Table(name = "projects")
 public class ProjectEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type = "uuid-char")
     @ColumnDefault("random_uuid()")
     private UUID uuid;

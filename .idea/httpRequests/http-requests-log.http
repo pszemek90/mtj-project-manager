@@ -1,3 +1,72 @@
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
+<> 2020-10-30T101038.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-30T101033.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
+<> 2020-10-30T101013.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-30T101008.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-30T100916.500.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-30T100709.200.json
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"firstName": "Jacek",
+"lastName": "Placek",
+"email": "jacekplacek@gmail.com"
+}
+
+<> 2020-10-30T100707.200.json
+
+###
+
+GET http://localhost:8080/api/users
+
+<> 2020-10-30T100704.200.json
+
+###
+
 GET http://localhost:8080/api/users
 
 <> 2020-10-30T100205.200.json
@@ -377,54 +446,6 @@ GET http://localhost:8080/api/users
 GET http://localhost:8080/api/projects
 
 <> 2020-10-29T064202.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T064140.200.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T064033.200.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T063925.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T063919.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T063541.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T063519.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T062215.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T062139.404.json
 
 ###
 
