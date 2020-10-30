@@ -7,6 +7,108 @@ Content-Type: application/json
   "customer": "bremer"
 }
 
+<> 2020-10-31T121123.200.json
+
+###
+
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
+<> 2020-10-31T111443.200.json
+
+###
+
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
+<> 2020-10-31T111036.500.json
+
+###
+
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
+<> 2020-10-31T110118.500.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-30T111801.200.json
+
+###
+
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
+<> 2020-10-30T111747.500.json
+
+###
+
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
+<> 2020-10-30T110611.500.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-30T110538.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-30T071935.200.json
+
+###
+
+GET http://localhost:8080/api/projects
+
+<> 2020-10-30T021637.200.json
+
+###
+
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+
+{
+  "number": "P18003",
+  "title": "Zalando",
+  "customer": "bremer"
+}
+
 <> 2020-10-30T101038.200.json
 
 ###
@@ -354,98 +456,6 @@ Content-Type: application/json
 }
 
 <> 2020-10-29T104801.200.json
-
-###
-
-POST http://localhost:8080/api/users
-Content-Type: application/json
-{:
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
-}:
-
-<> 2020-10-29T104502.400.html
-
-###
-
-POST http://localhost:8080/api/users
-Content-Type: application/json
-{:
-"uuid": "asd",
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
-}:
-
-<> 2020-10-29T104432.400.html
-
-###
-
-POST http://localhost:8080/api/users
-Content-Type: application/json
-{:
-"uuid": "asd",
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
-}:
-
-<> 2020-10-29T104344.400.html
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T104313.200.json
-
-###
-
-POST http://localhost:8080/api/users
-Content-Type: application/json
-{:
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
-}:
-
-<> 2020-10-29T104213.400.html
-
-###
-
-POST http://localhost:8080/api/users
-Content-Type: application/json
-{:
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
-}:
-
-<> 2020-10-29T103629.400.html
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T064343.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T064339.200.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T064208.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-29T064202.200.json
 
 ###
 

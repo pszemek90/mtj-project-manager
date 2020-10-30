@@ -5,6 +5,7 @@ import com.pszemek.mtjprojectmanager.repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProjectService {
@@ -19,7 +20,15 @@ public class ProjectService {
         return repository.findAll();
     }
 
+    public ProjectEntity getOneById(String id){
+        return repository.findById(UUID.fromString(id)).orElse(null);
+    }
+
     public ProjectEntity create(ProjectEntity project){
         return repository.saveAndFlush(project);
+    }
+
+    public void delete(String id){
+        repository.deleteById(UUID.fromString(id));
     }
 }

@@ -6,6 +6,7 @@ import com.pszemek.mtjprojectmanager.mapper.ProjectMapper;
 import com.pszemek.mtjprojectmanager.service.ProjectService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -21,10 +22,22 @@ public class ProjectController {
 
     @GetMapping
     public List<ProjectDto> getProjects(){
-        return ProjectMapper.map(projectService.getAll());
+        List<ProjectDto> sortedProjects = ProjectMapper.map(projectService.getAll());
+        sortedProjects.sort(Comparator.comparing(ProjectDto::getNumber));
+        return sortedProjects;
     }
 
-    @PostMapping
+    @GetMapping("/{id}")
+    public ProjectDto getProjectById(@PathVariable String id){
+        return ProjectMapper.map(projectService.getOneById(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProject(@PathVariable String id){
+        projectService.delete(id);
+    }
+
+    @PostMapping("/add")
     public ProjectDto createProject(@RequestBody ProjectEntity project){
         return ProjectMapper.map(projectService.create(project));
     }

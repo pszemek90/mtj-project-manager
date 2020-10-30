@@ -4,7 +4,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "projects")
@@ -17,10 +17,32 @@ public class ProjectEntity {
     private String number;
     private String title;
     private String customer;
+    @ManyToMany(mappedBy = "projects", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<CategoryEntity> categories;
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private List<MessageEntity> messages;
 
 
     public UUID getUuid() {
         return uuid;
+    }
+
+    public Set<CategoryEntity> getCategories() {
+        return Objects.requireNonNullElseGet(categories, HashSet::new);
+    }
+
+    public ProjectEntity setCategories(Set<CategoryEntity> categories) {
+        this.categories = categories;
+        return this;
+    }
+
+    public List<MessageEntity> getMessages() {
+        return Objects.requireNonNullElseGet(messages, ArrayList::new);
+    }
+
+    public ProjectEntity setMessages(List<MessageEntity> messages) {
+        this.messages = messages;
+        return this;
     }
 
     public String getNumber() {

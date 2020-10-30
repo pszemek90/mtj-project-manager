@@ -1,19 +1,29 @@
 package com.pszemek.mtjprojectmanager.mapper;
 
+import com.pszemek.mtjprojectmanager.dto.CategoryDto;
 import com.pszemek.mtjprojectmanager.dto.ProjectDto;
 import com.pszemek.mtjprojectmanager.entity.ProjectEntity;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProjectMapper {
 
     public static ProjectDto map(ProjectEntity entity){
+        if(entity == null){
+            throw new EntityNotFoundException();
+        }
         return new ProjectDto()
                 .setUuid(entity.getUuid())
                 .setNumber(entity.getNumber())
                 .setTitle(entity.getTitle())
-                .setCustomer(entity.getCustomer());
+                .setCustomer(entity.getCustomer())
+                .setCategories(CategoryMapper.map(entity.getCategories())
+                    .stream()
+                    .map(CategoryDto::getTitle)
+                    .collect(Collectors.toSet()))
+                .setMessages(MessageMapper.map(entity.getMessages()));
     }
 
     public static List<ProjectDto> map(List<ProjectEntity> entities){
