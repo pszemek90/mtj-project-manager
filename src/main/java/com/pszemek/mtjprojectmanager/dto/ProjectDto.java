@@ -10,7 +10,7 @@ public class ProjectDto {
     private String title;
     private String customer;
     private Set<String> categories;
-    private List<MessageDto> messages;
+    private Set<MessageDto> messages;
 
     public UUID getUuid() {
         return uuid;
@@ -25,11 +25,11 @@ public class ProjectDto {
         return this;
     }
 
-    public List<MessageDto> getMessages() {
+    public Set<MessageDto> getMessages() {
         return messages;
     }
 
-    public ProjectDto setMessages(List<MessageDto> messages) {
+    public ProjectDto setMessages(Set<MessageDto> messages) {
         this.messages = messages;
         return this;
     }

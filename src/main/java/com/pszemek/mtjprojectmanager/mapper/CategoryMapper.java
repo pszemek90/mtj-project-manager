@@ -16,7 +16,7 @@ public class CategoryMapper {
                 .setProjects(entity.getProjects()
                         .stream()
                         .map(ProjectEntity::getNumber)
-                        .collect(Collectors.toList()));
+                        .collect(Collectors.toSet()));
     }
 
     public static Set<CategoryDto> map(Set<CategoryEntity> entities){

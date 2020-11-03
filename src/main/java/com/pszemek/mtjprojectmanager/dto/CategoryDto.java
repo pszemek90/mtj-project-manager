@@ -1,18 +1,18 @@
 package com.pszemek.mtjprojectmanager.dto;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class CategoryDto {
     private UUID uuid;
     private String title;
-    private List<String> projects;
+    private Set<String> projects;
 
-    public List<String> getProjects() {
+    public Set<String> getProjects() {
         return projects;
     }
 
-    public CategoryDto setProjects(List<String> projects) {
+    public CategoryDto setProjects(Set<String> projects) {
         this.projects = projects;
         return this;
     }

@@ -4,6 +4,7 @@ import com.pszemek.mtjprojectmanager.dto.MessageDto;
 import com.pszemek.mtjprojectmanager.entity.MessageEntity;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MessageMapper {
@@ -16,9 +17,9 @@ public class MessageMapper {
                 .setText(entity.getText());
     }
 
-    public static List<MessageDto> map(List<MessageEntity> entities){
+    public static Set<MessageDto> map(Set<MessageEntity> entities){
         return entities
                 .stream().map(MessageMapper::map)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 }

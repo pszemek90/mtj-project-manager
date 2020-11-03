@@ -19,8 +19,8 @@ public class ProjectEntity {
     private String customer;
     @ManyToMany(mappedBy = "projects", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<CategoryEntity> categories;
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-    private List<MessageEntity> messages;
+    @OneToMany(mappedBy = "project", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<MessageEntity> messages;
 
 
     public UUID getUuid() {
@@ -36,11 +36,11 @@ public class ProjectEntity {
         return this;
     }
 
-    public List<MessageEntity> getMessages() {
-        return Objects.requireNonNullElseGet(messages, ArrayList::new);
+    public Set<MessageEntity> getMessages() {
+        return Objects.requireNonNullElseGet(messages, HashSet::new);
     }
 
-    public ProjectEntity setMessages(List<MessageEntity> messages) {
+    public ProjectEntity setMessages(Set<MessageEntity> messages) {
         this.messages = messages;
         return this;
     }

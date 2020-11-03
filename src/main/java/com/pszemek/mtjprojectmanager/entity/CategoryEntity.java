@@ -15,13 +15,12 @@ public class CategoryEntity {
     @ColumnDefault("random_uuid()")
     private UUID uuid;
     private String title;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "project_category",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "project_id")
+            joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "uuid"),
+            inverseJoinColumns = @JoinColumn(name = "project_id", referencedColumnName = "uuid")
     )
-    @JoinColumn(name = "project_id")
     private Set<ProjectEntity> projects;
 
     public UUID getUuid() {
