@@ -6,14 +6,14 @@ import java.util.UUID;
 public class CategoryDto {
     private UUID uuid;
     private String title;
-    private Set<String> projects;
+    private String project;
 
-    public Set<String> getProjects() {
-        return projects;
+    public String getProject() {
+        return project;
     }
 
-    public CategoryDto setProjects(Set<String> projects) {
-        this.projects = projects;
+    public CategoryDto setProject(String project) {
+        this.project = project;
         return this;
     }
 

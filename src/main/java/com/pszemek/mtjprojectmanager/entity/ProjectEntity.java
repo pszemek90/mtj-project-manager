@@ -17,9 +17,9 @@ public class ProjectEntity {
     private String number;
     private String title;
     private String customer;
-    @ManyToMany(mappedBy = "projects", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "project", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private Set<CategoryEntity> categories;
-    @OneToMany(mappedBy = "project", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "project", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private Set<MessageEntity> messages;
 
 

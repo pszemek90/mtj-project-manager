@@ -20,7 +20,7 @@ public class MessageEntity {
     private String text;
     private String category;
     @ManyToOne
-    @JoinColumn(name = "project_id")
+    @JoinColumn(name = "project_id", referencedColumnName = "uuid")
     private ProjectEntity project;
 
     public UUID getUuid() {

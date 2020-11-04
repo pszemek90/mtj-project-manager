@@ -13,10 +13,7 @@ public class CategoryMapper {
         return new CategoryDto()
                 .setUuid(entity.getUuid())
                 .setTitle(entity.getTitle())
-                .setProjects(entity.getProjects()
-                        .stream()
-                        .map(ProjectEntity::getNumber)
-                        .collect(Collectors.toSet()));
+                .setProject(entity.getProject().getNumber());
     }
 
     public static Set<CategoryDto> map(Set<CategoryEntity> entities){

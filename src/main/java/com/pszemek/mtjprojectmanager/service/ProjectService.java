@@ -36,12 +36,7 @@ public class ProjectService {
 
     public void delete(String id){
         ProjectEntity project = projectRepository.getOne(UUID.fromString(id));
-        Set<CategoryEntity> projectCategories = project.getCategories();
         Set<MessageEntity> projectMessages = project.getMessages();
-        for (CategoryEntity categoryEntity : project.getCategories()){
-            projectCategories.remove(categoryEntity);
-            categoryEntity.getProjects().remove(project);
-        }
         for(MessageEntity messageEntity : projectMessages){
             projectMessages.remove(messageEntity);
             messageRepository.delete(messageEntity);

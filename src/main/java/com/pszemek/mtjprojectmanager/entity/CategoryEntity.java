@@ -15,13 +15,9 @@ public class CategoryEntity {
     @ColumnDefault("random_uuid()")
     private UUID uuid;
     private String title;
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-            name = "project_category",
-            joinColumns = @JoinColumn(name = "category_id", referencedColumnName = "uuid"),
-            inverseJoinColumns = @JoinColumn(name = "project_id", referencedColumnName = "uuid")
-    )
-    private Set<ProjectEntity> projects;
+    @ManyToOne
+    @JoinColumn(name = "project_id", referencedColumnName = "uuid")
+    private ProjectEntity project;
 
     public UUID getUuid() {
         return uuid;
@@ -36,12 +32,12 @@ public class CategoryEntity {
         return this;
     }
 
-    public Set<ProjectEntity> getProjects() {
-        return Objects.requireNonNullElseGet(projects, HashSet::new);
+    public ProjectEntity getProject() {
+        return project;
     }
 
-    public CategoryEntity setProjects(Set<ProjectEntity> projects) {
-        this.projects = projects;
+    public CategoryEntity setProject(ProjectEntity project) {
+        this.project = project;
         return this;
     }
 }
