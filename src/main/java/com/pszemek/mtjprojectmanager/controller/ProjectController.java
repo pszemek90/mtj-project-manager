@@ -3,7 +3,6 @@ package com.pszemek.mtjprojectmanager.controller;
 import com.pszemek.mtjprojectmanager.dto.ProjectDto;
 import com.pszemek.mtjprojectmanager.entity.CategoryEntity;
 import com.pszemek.mtjprojectmanager.entity.ProjectEntity;
-import com.pszemek.mtjprojectmanager.mapper.CategoryMapper;
 import com.pszemek.mtjprojectmanager.mapper.ProjectMapper;
 import com.pszemek.mtjprojectmanager.service.ProjectService;
 import org.springframework.web.bind.annotation.*;
@@ -24,14 +23,14 @@ public class ProjectController {
 
     @GetMapping
     public List<ProjectDto> getProjects(){
-        List<ProjectDto> sortedProjects = ProjectMapper.map(projectService.getAll());
+        List<ProjectDto> sortedProjects = ProjectMapper.mapToDto(projectService.getAll());
         sortedProjects.sort(Comparator.comparing(ProjectDto::getNumber));
         return sortedProjects;
     }
 
     @GetMapping("/{id}")
     public ProjectDto getProjectById(@PathVariable String id){
-        return ProjectMapper.map(projectService.getOneById(id));
+        return ProjectMapper.mapToDto(projectService.getOneById(id));
     }
 
     @DeleteMapping("/{id}")
@@ -40,15 +39,28 @@ public class ProjectController {
     }
 
     @PostMapping("/add")
-    public ProjectDto createProject(@RequestBody ProjectEntity project){
-        return ProjectMapper.map(projectService.create(project));
+    public ProjectDto createProject(@RequestBody ProjectDto project){
+        ProjectEntity projectEntity = ProjectMapper.mapToEntity(project);
+        projectService.create(projectEntity);
+        return project;
     }
 
-    @PostMapping("/{id}")
-    public ProjectDto updateProject(@PathVariable String id, @RequestBody CategoryEntity category){
-        ProjectEntity project = projectService.getOneById(id);
-        project.getCategories().add(category);
-        projectService.create(project);
-        return ProjectMapper.map(project);
+    @PutMapping("/{id}")
+    public ProjectDto updateProject(@PathVariable String id, @RequestBody ProjectDto project){
+        ProjectEntity existingProject = projectService.getOneById(id);
+        ProjectEntity updatedProject = ProjectMapper.mapToEntity(project);
+        existingProject.setMessages(updatedProject.getMessages());
+        existingProject.setCategories(updatedProject.getCategories());
+        projectService.create(existingProject);
+        return project;
+
     }
+
+//    @PostMapping("/{id}")
+//    public ProjectDto updateProject(@PathVariable String id, @RequestBody CategoryEntity category){
+//        ProjectEntity project = projectService.getOneById(id);
+//        project.getCategories().add(category);
+//        projectService.create(project);
+//        return ProjectMapper.mapToDto(project);
+//    }
 }
