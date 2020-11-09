@@ -5,6 +5,8 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -18,13 +20,28 @@ public class MessageEntity {
     private UUID uuid;
     private String title;
     private String text;
+    private Long date;
     private String category;
     @ManyToOne
     @JoinColumn(name = "project_id", referencedColumnName = "uuid")
     private ProjectEntity project;
 
+    public Long getDate() {
+        return date;
+    }
+
+    public MessageEntity setDate(Long date) {
+        this.date = date;
+        return this;
+    }
+
     public UUID getUuid() {
         return uuid;
+    }
+
+    public MessageEntity setUuid(UUID uuid) {
+        this.uuid = uuid;
+        return this;
     }
 
     public String getTitle() {
@@ -61,5 +78,18 @@ public class MessageEntity {
     public MessageEntity setProject(ProjectEntity project) {
         this.project = project;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MessageEntity that = (MessageEntity) o;
+        return Objects.equals(uuid, that.uuid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uuid);
     }
 }

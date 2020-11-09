@@ -3,7 +3,7 @@ package com.pszemek.mtjprojectmanager.dto;
 import java.util.Set;
 import java.util.UUID;
 
-public class CategoryDto {
+public class CategoryDto implements Comparable<CategoryDto> {
     private UUID uuid;
     private String title;
     private String project;
@@ -33,5 +33,10 @@ public class CategoryDto {
     public CategoryDto setTitle(String title) {
         this.title = title;
         return this;
+    }
+
+    @Override
+    public int compareTo(CategoryDto categoryDto) {
+        return this.getTitle().compareTo(categoryDto.getTitle());
     }
 }

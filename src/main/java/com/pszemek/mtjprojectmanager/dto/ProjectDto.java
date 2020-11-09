@@ -1,7 +1,8 @@
 package com.pszemek.mtjprojectmanager.dto;
 
-import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.UUID;
 
 public class ProjectDto {
@@ -9,27 +10,27 @@ public class ProjectDto {
     private String number;
     private String title;
     private String customer;
-    private Set<String> categories;
-    private Set<MessageDto> messages;
+    private TreeSet<String> categories;
+    private TreeSet<MessageDto> messages;
 
     public UUID getUuid() {
         return uuid;
     }
 
-    public Set<String> getCategories() {
+    public TreeSet<String> getCategories() {
         return categories;
     }
 
-    public ProjectDto setCategories(Set<String> categories) {
+    public ProjectDto setCategories(TreeSet<String> categories) {
         this.categories = categories;
         return this;
     }
 
-    public Set<MessageDto> getMessages() {
+    public TreeSet<MessageDto> getMessages() {
         return messages;
     }
 
-    public ProjectDto setMessages(Set<MessageDto> messages) {
+    public ProjectDto setMessages(TreeSet<MessageDto> messages) {
         this.messages = messages;
         return this;
     }

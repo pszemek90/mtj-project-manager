@@ -2,16 +2,26 @@ package com.pszemek.mtjprojectmanager.mapper;
 
 import com.pszemek.mtjprojectmanager.dto.CategoryDto;
 import com.pszemek.mtjprojectmanager.dto.ProjectDto;
+import com.pszemek.mtjprojectmanager.entity.CategoryEntity;
 import com.pszemek.mtjprojectmanager.entity.ProjectEntity;
 import com.pszemek.mtjprojectmanager.service.ProjectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+@Component
 public class ProjectMapper {
 
     private static ProjectService projectService;
+
+    @Autowired
+    public ProjectMapper(ProjectService projectService) {
+        ProjectMapper.projectService = projectService;
+    }
 
     public static ProjectDto mapToDto(ProjectEntity entity){
         if(entity == null){
@@ -25,7 +35,7 @@ public class ProjectMapper {
                 .setCategories(CategoryMapper.mapToDto(entity.getCategories())
                     .stream()
                     .map(CategoryDto::getTitle)
-                    .collect(Collectors.toSet()))
+                    .collect(Collectors.toCollection(TreeSet::new)))
                 .setMessages(MessageMapper.mapToDto(entity.getMessages()));
     }
 
@@ -43,7 +53,7 @@ public class ProjectMapper {
                 .setCustomer(dto.getCustomer())
                 .setCategories(dto.getCategories()
                         .stream()
-                        .map(category -> projectService.getOneByTitle(category))
+                        .map(category -> projectService.getCategoryByTitle(category).orElse(new CategoryEntity().setTitle(category)))
                         .collect(Collectors.toSet()))
                 .setMessages(MessageMapper.mapToEntity(dto.getMessages()));
     }

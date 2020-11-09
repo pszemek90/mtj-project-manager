@@ -27,6 +27,11 @@ public class ProjectEntity {
         return uuid;
     }
 
+    public ProjectEntity setUuid(UUID uuid) {
+        this.uuid = uuid;
+        return this;
+    }
+
     public Set<CategoryEntity> getCategories() {
         return Objects.requireNonNullElseGet(categories, HashSet::new);
     }

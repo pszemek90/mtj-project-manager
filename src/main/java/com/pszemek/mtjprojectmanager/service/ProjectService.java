@@ -9,6 +9,7 @@ import com.pszemek.mtjprojectmanager.repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -29,7 +30,7 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public ProjectEntity getOneById(String id){
+    public ProjectEntity getProjectById(String id){
         return projectRepository.findById(UUID.fromString(id)).orElse(null);
     }
 
@@ -47,7 +48,11 @@ public class ProjectService {
         projectRepository.delete(project);
     }
 
-    public CategoryEntity getOneByTitle(String title){
-        return categoryRepository.findFirstByTitle(title);
+    public Optional<CategoryEntity> getCategoryByTitle(String title){
+        return Optional.ofNullable(categoryRepository.findFirstByTitle(title));
+    }
+
+    public MessageEntity getMessageById(String id){
+        return messageRepository.getOne(UUID.fromString(id));
     }
 }

@@ -1,5 +1,6 @@
 package com.pszemek.mtjprojectmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Type;
 
@@ -8,6 +9,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "categories")
+@JsonIgnoreProperties("project")
 public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +23,11 @@ public class CategoryEntity {
 
     public UUID getUuid() {
         return uuid;
+    }
+
+    public CategoryEntity setUuid(UUID uuid) {
+        this.uuid = uuid;
+        return this;
     }
 
     public String getTitle() {

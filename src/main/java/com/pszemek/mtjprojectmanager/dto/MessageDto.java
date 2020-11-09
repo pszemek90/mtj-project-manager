@@ -2,12 +2,22 @@ package com.pszemek.mtjprojectmanager.dto;
 
 import java.util.UUID;
 
-public class MessageDto {
+public class MessageDto implements Comparable<MessageDto> {
     private UUID uuid;
     private String title;
     private String text;
     private String category;
     private String project;
+    private Long date;
+
+    public Long getDate() {
+        return date;
+    }
+
+    public MessageDto setDate(Long date) {
+        this.date = date;
+        return this;
+    }
 
     public UUID getUuid() {
         return uuid;
@@ -52,5 +62,14 @@ public class MessageDto {
     public MessageDto setProject(String project) {
         this.project = project;
         return this;
+    }
+
+    @Override
+    public int compareTo(MessageDto messageDto) {
+        if (messageDto != null) {
+            return messageDto.getDate().compareTo(this.getDate());
+        } else{
+            return 1;
+        }
     }
 }
