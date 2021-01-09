@@ -8,6 +8,7 @@ import com.pszemek.repository.MessageRepository;
 import com.pszemek.repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
+import java.rmi.server.UID;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -30,16 +31,16 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public ProjectEntity getProjectById(String id){
-        return projectRepository.findById(UUID.fromString(id)).orElse(null);
+    public ProjectEntity getProjectById(String uuid){
+        return projectRepository.findByUuid(uuid);
     }
 
     public ProjectEntity create(ProjectEntity project){
         return projectRepository.saveAndFlush(project);
     }
 
-    public void delete(String id){
-        ProjectEntity project = projectRepository.getOne(UUID.fromString(id));
+    public void delete(String uuid){
+        ProjectEntity project = projectRepository.findByUuid(uuid);
         Set<MessageEntity> projectMessages = project.getMessages();
         for(MessageEntity messageEntity : projectMessages){
             projectMessages.remove(messageEntity);
@@ -52,7 +53,7 @@ public class ProjectService {
         return Optional.ofNullable(categoryRepository.findFirstByTitle(title));
     }
 
-    public MessageEntity getMessageById(String id){
-        return messageRepository.getOne(UUID.fromString(id));
+    public MessageEntity getMessageById(String uuid){
+        return messageRepository.findByUuid(uuid);
     }
 }

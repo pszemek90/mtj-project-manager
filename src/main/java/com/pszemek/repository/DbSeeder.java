@@ -33,32 +33,32 @@ public class DbSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        this.categoryRepository.deleteAll();
-//        this.messageRepository.deleteAll();
-//        this.projectRepository.deleteAll();
+        categoryRepository.deleteAll();
+        messageRepository.deleteAll();
+        projectRepository.deleteAll();
         userRepository.deleteAll();
         roleRepository.deleteAll();
 
-//        ProjectEntity projectEntity = new ProjectEntity()
-//                .setNumber("P20002")
-//                .setTitle("Konotopa")
-//                .setCustomer("Depenbrock");
-//        projectRepository.save(projectEntity);
-//
-//        CategoryEntity categoryEntity = new CategoryEntity()
-//                .setTitle("architektura")
-//                .setProject(projectEntity);
-//
-//        categoryRepository.save(categoryEntity);
-//
-//        MessageEntity messageEntity = new MessageEntity()
-//                .setProject(projectEntity)
-//                .setTitle("testTitle1")
-//                .setText("testText1")
-//                .setCategory("architektura")
-//                .setDate(1L);
-//
-//        messageRepository.save(messageEntity);
+        ProjectEntity projectEntity = new ProjectEntity()
+                .setNumber("P20002")
+                .setTitle("Konotopa")
+                .setCustomer("Depenbrock");
+        projectRepository.save(projectEntity);
+
+        CategoryEntity categoryEntity = new CategoryEntity()
+                .setTitle("architektura")
+                .setProject(projectEntity);
+
+        categoryRepository.save(categoryEntity);
+
+        MessageEntity messageEntity = new MessageEntity()
+                .setProject(projectEntity)
+                .setTitle("testTitle1")
+                .setText("testText1")
+                .setCategory("architektura")
+                .setDate(1L);
+
+        messageRepository.save(messageEntity);
 
         RoleEntity userRole = new RoleEntity()
                 .setName(RoleEnum.ROLE_USER);

@@ -1,8 +1,5 @@
 package com.pszemek.entity;
 
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
@@ -11,15 +8,15 @@ import java.util.UUID;
 @Table(name = "messages")
 public class MessageEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String uuid;
+    private String uuid = UUID.randomUUID().toString();
     private String title;
     private String text;
     private Long date;
     private String category;
     @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "uuid")
+    @JoinColumn(name = "project_id", referencedColumnName = "id")
     private ProjectEntity project;
 
     public Long getDate() {

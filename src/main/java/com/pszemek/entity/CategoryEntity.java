@@ -1,6 +1,7 @@
 package com.pszemek.entity;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "categories")
@@ -8,10 +9,10 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String uuid;
+    private String uuid = UUID.randomUUID().toString();
     private String title;
     @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "uuid")
+    @JoinColumn(name = "project_id", referencedColumnName = "id")
     private ProjectEntity project;
 
     public Long getId() {
