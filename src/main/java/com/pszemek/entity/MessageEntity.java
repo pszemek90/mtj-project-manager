@@ -12,9 +12,8 @@ import java.util.UUID;
 public class MessageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type = "uuid-char")
-    @ColumnDefault("random_uuid()")
-    private UUID uuid;
+    private Long id;
+    private String uuid;
     private String title;
     private String text;
     private Long date;
@@ -32,11 +31,15 @@ public class MessageEntity {
         return this;
     }
 
-    public UUID getUuid() {
+    public Long getId() {
+        return id;
+    }
+
+    public String getUuid() {
         return uuid;
     }
 
-    public MessageEntity setUuid(UUID uuid) {
+    public MessageEntity setUuid(String uuid) {
         this.uuid = uuid;
         return this;
     }

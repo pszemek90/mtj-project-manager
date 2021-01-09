@@ -1,9 +1,7 @@
 package com.pszemek.dto;
 
-import java.util.UUID;
-
 public class MessageDto implements Comparable<MessageDto> {
-    private UUID uuid;
+    private String uuid;
     private String title;
     private String text;
     private String category;
@@ -19,11 +17,11 @@ public class MessageDto implements Comparable<MessageDto> {
         return this;
     }
 
-    public UUID getUuid() {
+    public String getUuid() {
         return uuid;
     }
 
-    public MessageDto setUuid(UUID uuid) {
+    public MessageDto setUuid(String uuid) {
         this.uuid = uuid;
         return this;
     }
