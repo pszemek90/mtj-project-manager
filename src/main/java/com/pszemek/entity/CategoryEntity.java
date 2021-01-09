@@ -1,29 +1,28 @@
 package com.pszemek.entity;
 
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
-import java.util.*;
 
 @Entity
 @Table(name = "categories")
 public class CategoryEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type = "uuid-char")
-    @ColumnDefault("random_uuid()")
-    private UUID uuid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String uuid;
     private String title;
     @ManyToOne
     @JoinColumn(name = "project_id", referencedColumnName = "uuid")
     private ProjectEntity project;
 
-    public UUID getUuid() {
+    public Long getId() {
+        return id;
+    }
+
+    public String getUuid() {
         return uuid;
     }
 
-    public CategoryEntity setUuid(UUID uuid) {
+    public CategoryEntity setUuid(String uuid) {
         this.uuid = uuid;
         return this;
     }
