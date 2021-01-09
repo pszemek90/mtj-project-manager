@@ -1,18 +1,22 @@
 package com.pszemek.dto;
 
 import java.util.TreeSet;
-import java.util.UUID;
 
 public class ProjectDto {
-    private UUID uuid;
+    private String uuid;
     private String number;
     private String title;
     private String customer;
     private TreeSet<String> categories;
     private TreeSet<MessageDto> messages;
 
-    public UUID getUuid() {
+    public String getUuid() {
         return uuid;
+    }
+
+    public ProjectDto setUuid(String uuid) {
+        this.uuid = uuid;
+        return this;
     }
 
     public TreeSet<String> getCategories() {
@@ -30,11 +34,6 @@ public class ProjectDto {
 
     public ProjectDto setMessages(TreeSet<MessageDto> messages) {
         this.messages = messages;
-        return this;
-    }
-
-    public ProjectDto setUuid(UUID uuid) {
-        this.uuid = uuid;
         return this;
     }
 

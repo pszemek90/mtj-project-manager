@@ -11,10 +11,9 @@ import java.util.*;
 @Table(name = "projects")
 public class ProjectEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type = "uuid-char")
-    @ColumnDefault("random_uuid()")
-    private UUID uuid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String uuid = UUID.randomUUID().toString();
     private String number;
     private String title;
     private String customer;
@@ -25,12 +24,15 @@ public class ProjectEntity {
     @OneToMany(mappedBy = "project", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private Set<MessageEntity> messages;
 
+    public Long getId() {
+        return id;
+    }
 
-    public UUID getUuid() {
+    public String getUuid() {
         return uuid;
     }
 
-    public ProjectEntity setUuid(UUID uuid) {
+    public ProjectEntity setUuid(String uuid) {
         this.uuid = uuid;
         return this;
     }
