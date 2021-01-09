@@ -1,440 +1,499 @@
-GET http://localhost:8081/api/users
+GET http://localhost:8080/api/test/admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYwOTQyMDMyNSwiZXhwIjoxNjA5NTA2NzI1fQ.hXE7rnl84tfGMAbkvVLxkGhtxGOlkCpUtnGH_jZXHo_qYUgG14pgoj3DBtg5BCYY47WdJNhqNnESXtMBkGq3zg
 
-<> 2020-12-08T203138.401.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-11-09T081650.200.json
+<> 2020-12-31T141223.200.txt
 
 ###
 
-GET http://localhost:8080/api/projects
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYwOTQyMDMyNSwiZXhwIjoxNjA5NTA2NzI1fQ.hXE7rnl84tfGMAbkvVLxkGhtxGOlkCpUtnGH_jZXHo_qYUgG14pgoj3DBtg5BCYY47WdJNhqNnESXtMBkGq3zg
 
-<> 2020-11-03T074139.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-11-01T091123.200.json
+<> 2020-12-31T141221.200.txt
 
 ###
 
-POST http://localhost:8080/api/projects
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+  "username": "admin",
+  "password": "qwerty"
 }
 
-<> 2020-10-31T121123.200.json
+<> 2020-12-31T141205.200.json
 
 ###
 
-POST http://localhost:8080/api/projects
+GET http://localhost:8080/api/test/admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1zg
+
+<> 2020-12-31T141158.403.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1zg
+
+<> 2020-12-31T141156.200.txt
+
+###
+
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+  "username": "admin",
+  "password": "qwerty"
 }
 
-<> 2020-10-31T111443.200.json
+<> 2020-12-31T141152.200.json
 
 ###
 
-POST http://localhost:8080/api/projects
+GET http://localhost:8080/api/test/admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1zg
+
+<> 2020-12-31T141147.403.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1zg
+
+<> 2020-12-31T141144.200.txt
+
+###
+
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-31T111036.500.json
+<> 2020-12-31T141139.200.json
 
 ###
 
-POST http://localhost:8080/api/projects
+GET http://localhost:8080/api/test/admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1zg
+
+<> 2020-12-31T141007.403.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1zg
+
+<> 2020-12-31T140755.200.txt
+
+###
+
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-31T110118.500.json
+<> 2020-12-31T140653.200.json
 
 ###
 
-GET http://localhost:8080/api/projects
-
-<> 2020-10-30T111801.200.json
-
-###
-
-POST http://localhost:8080/api/projects
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-30T111747.500.json
+<> 2020-12-31T140301.401.json
 
 ###
 
-POST http://localhost:8080/api/projects
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1zg
+
+<> 2020-12-31T120841.200.txt
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyODI0LCJleHAiOjE2MDk0OTkyMjR9.wKuXxbPPCw4UMtk3QDCzHkEz4MS1qtSMBl_7bBuIMcGES_qWEFg_msxNgMQPIkXqogNtNYnoa16lZhNHd_X1z
+
+<> 2020-12-31T120835.401.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer njnjnj
+
+<> 2020-12-31T120817.401.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer
+
+<> 2020-12-31T120810.401.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization:
+
+<> 2020-12-31T120803.401.json
+
+###
+
+GET http://localhost:8080/api/test/user
+
+<> 2020-12-31T120753.401.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyNzQxLCJleHAiOjE2MDk0OTkxNDF9.4ARY8arZk20ZSSZqLqDeex3wd6ozAhjzd5KsCb7AxPGeSBD6VhngwCIQtELHn2fJdvlywvoTbZOmGiyWM9H2bA
+
+<> 2020-12-31T120709.200.txt
+
+###
+
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-30T110611.500.json
+<> 2020-12-31T120704.200.json
 
 ###
 
-GET http://localhost:8080/api/projects
-
-<> 2020-10-30T110538.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-30T071935.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-30T021637.200.json
-
-###
-
-POST http://localhost:8080/api/projects
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
 }
 
-<> 2020-10-30T101038.200.json
+<> 2020-12-31T120657.200.json
 
 ###
 
-GET http://localhost:8080/api/projects
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDEyNzQxLCJleHAiOjE2MDk0OTkxNDF9.4ARY8arZk20ZSSZqLqDeex3wd6ozAhjzd5KsCb7AxPGeSBD6VhngwCIQtELHn2fJdvlywvoTbZOmGiyWM9H2bA
 
-<> 2020-10-30T101033.200.json
+<> 2020-12-31T120554.200.txt
 
 ###
 
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-  "number": "P18003",
-  "title": "Zalando",
-  "customer": "bremer"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-30T101013.200.json
+<> 2020-12-31T120541.200.json
 
 ###
 
-GET http://localhost:8080/api/projects
-
-<> 2020-10-30T101008.200.json
-
-###
-
-GET http://localhost:8080/api/projects
-
-<> 2020-10-30T100916.500.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-30T100709.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
 }
 
-<> 2020-10-30T100707.200.json
+<> 2020-12-31T120535.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-30T100704.200.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-30T100205.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-30T100201.200.json
+<> 2020-12-31T120029.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-30T100157.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
 }
 
-<> 2020-10-30T095712.200.json
+<> 2020-12-31T115832.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-30T095647.200.json
-
-###
-
-GET http://localhost:8080/api/users/
-
-<> 2020-10-30T095022.500.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-30T094941.500.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
 }
 
-<> 2020-10-30T094735.500.json
+<> 2020-12-31T114914.200.json
 
 ###
 
-GET http://localhost:8080/api/users
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5NDExNjY4LCJleHAiOjE2MDk0OTgwNjh9.HEWfj8tP50vg5W4s_rv8m5mMJSdUQRVnllQ_uda_mmPR73WhmW883NJ1C6bz15I9PSEXpQGVas5gUTrCAadmtg
 
-<> 2020-10-30T094538.500.json
+<> 2020-12-31T114802.200.txt
 
 ###
 
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-30T093529.200.json
+<> 2020-12-31T114748.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T113353.200.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T113350.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
 }
 
-<> 2020-10-29T113347.200.json
+<> 2020-12-31T114743.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T113307.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-29T113200.200.json
+<> 2020-12-31T113947.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T112512.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-29T112509.200.json
+<> 2020-12-31T113849.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T111755.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
 }
 
-<> 2020-10-29T111752.200.json
+<> 2020-12-31T113759.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T111706.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-29T111702.200.json
+<> 2020-12-31T113636.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T110650.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
 }
 
-<> 2020-10-29T110641.200.json
+<> 2020-12-31T113632.200.json
 
 ###
 
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T110305.200.json
-
-###
-
-GET http://localhost:8080/api/users
-
-<> 2020-10-29T110130.200.json
-
-###
-
-POST http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
 Content-Type: application/json
 
 {
-"firstName": "Jacek",
-"lastName": "Placek",
-"email": "jacekplacek@gmail.com"
+  "username": "user",
+  "password": "qwerty"
 }
 
-<> 2020-10-29T110122.200.json
+<> 2020-12-31T113538.200.json
 
 ###
 
-GET http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
 
-<> 2020-10-29T110116.200.json
+{
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
+}
+
+<> 2020-12-31T113532.200.json
 
 ###
 
-GET http://localhost:8080/api/users
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
 
-<> 2020-10-29T110058.200.json
+{
+  "username": "user",
+  "password": "qwerty"
+}
+
+<> 2020-12-31T110934.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
+}
+
+<> 2020-12-31T110341.200.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5MzYzNjY2LCJleHAiOjE2MDk0NTAwNjZ9.bUpA9xZx9Covpd3dOuDYVjZbFuupiCK6ZfMRrazLXrZFebkM8tdxOD7nzI89CgX0L3zZNL6ftaHeXoQzAbgibw
+
+<> 2020-12-30T222922.401.json
+
+###
+
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "qwerty"
+}
+
+<> 2020-12-30T222746.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "qwerty"
+}
+
+<> 2020-12-30T222739.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "qwerty"
+}
+
+<> 2020-12-30T221629.200.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5MzYyODk5LCJleHAiOjE2MDk0NDkyOTl9.3dsC0kJhSXbE8YVAHPYNHHc859Bq567lSoU8mv79Nzaa_4pOXCisxvDUDx_usQAXgVIxV_LtqDaGbPTYsBpKHg"
+
+<> 2020-12-30T221616.401.json
+
+###
+
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjA5MzYyODk5LCJleHAiOjE2MDk0NDkyOTl9.3dsC0kJhSXbE8YVAHPYNHHc859Bq567lSoU8mv79Nzaa_4pOXCisxvDUDx_usQAXgVIxV_LtqDaGbPTYsBpKHg
+
+<> 2020-12-30T221532.401.json
+
+###
+
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "qwerty"
+}
+
+<> 2020-12-30T221459.200.json
+
+###
+
+GET http://localhost:8080/api/test/user
+
+<> 2020-12-30T221157.401.json
+
+###
+
+GET http://localhost:8080/api/test/all
+
+<> 2020-12-30T221151.200.txt
+
+###
+
+GET http://localhost:8080/api/test/all
+
+<> 2020-12-30T214456.200.txt
 
 ###
 

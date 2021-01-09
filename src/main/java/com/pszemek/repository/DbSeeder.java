@@ -1,53 +1,88 @@
 package com.pszemek.repository;
 
-import com.pszemek.entity.CategoryEntity;
-import com.pszemek.entity.MessageEntity;
-import com.pszemek.entity.ProjectEntity;
+import com.pszemek.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import java.util.HashSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
 @ConditionalOnProperty(name = "projectmanager.db.recreate", havingValue = "true")
 public class DbSeeder implements CommandLineRunner {
 
-    private CategoryRepository categoryRepository;
-    private MessageRepository messageRepository;
-    private ProjectRepository projectRepository;
+    private final CategoryRepository categoryRepository;
+    private final MessageRepository messageRepository;
+    private final ProjectRepository projectRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder encoder;
 
-    public DbSeeder(CategoryRepository categoryRepository, MessageRepository messageRepository, ProjectRepository projectRepository, UserRepository userRepository) {
+    public DbSeeder(CategoryRepository categoryRepository, MessageRepository messageRepository, ProjectRepository projectRepository, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder encoder) {
         this.categoryRepository = categoryRepository;
         this.messageRepository = messageRepository;
         this.projectRepository = projectRepository;
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.encoder = encoder;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        this.categoryRepository.deleteAll();
-        this.messageRepository.deleteAll();
-        this.projectRepository.deleteAll();
+//        this.categoryRepository.deleteAll();
+//        this.messageRepository.deleteAll();
+//        this.projectRepository.deleteAll();
+        userRepository.deleteAll();
+        roleRepository.deleteAll();
 
-        ProjectEntity projectEntity = new ProjectEntity()
-                .setNumber("P20002")
-                .setTitle("Konotopa")
-                .setCustomer("Depenbrock");
-        projectRepository.save(projectEntity);
+//        ProjectEntity projectEntity = new ProjectEntity()
+//                .setNumber("P20002")
+//                .setTitle("Konotopa")
+//                .setCustomer("Depenbrock");
+//        projectRepository.save(projectEntity);
+//
+//        CategoryEntity categoryEntity = new CategoryEntity()
+//                .setTitle("architektura")
+//                .setProject(projectEntity);
+//
+//        categoryRepository.save(categoryEntity);
+//
+//        MessageEntity messageEntity = new MessageEntity()
+//                .setProject(projectEntity)
+//                .setTitle("testTitle1")
+//                .setText("testText1")
+//                .setCategory("architektura")
+//                .setDate(1L);
+//
+//        messageRepository.save(messageEntity);
 
-        CategoryEntity categoryEntity = new CategoryEntity()
-                .setTitle("architektura")
-                .setProject(projectEntity);
+        RoleEntity userRole = new RoleEntity()
+                .setName(RoleEnum.ROLE_USER);
+        RoleEntity adminRole = new RoleEntity()
+                .setName(RoleEnum.ROLE_ADMIN);
 
-        categoryRepository.save(categoryEntity);
+        roleRepository.save(userRole);
+        roleRepository.save(adminRole);
 
-        MessageEntity messageEntity = new MessageEntity()
-                .setProject(projectEntity)
-                .setTitle("testTitle1")
-                .setText("testText1")
-                .setCategory("architektura")
-                .setDate(1L);
+        UserEntity user = new UserEntity()
+                .setUsername("user")
+                .setPassword(encoder.encode("qwerty"))
+                .setRoles(Stream.of(userRole).collect(Collectors.toCollection(HashSet::new)))
+                .setEmail("user@user.com");
 
-        messageRepository.save(messageEntity);
+        UserEntity admin = new UserEntity()
+                .setUsername("admin")
+                .setPassword(encoder.encode("qwerty"))
+                .setRoles(Stream.of(userRole, adminRole).collect(Collectors.toCollection(HashSet::new)))
+                .setEmail("admin@user.com");
+
+        userRepository.save(user);
+        userRepository.save(admin);
+
 
     }
 }

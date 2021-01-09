@@ -1,4 +1,51 @@
 
+#JWT requests
+GET http://localhost:8080/api/test/all
+###
+GET http://localhost:8080/api/test/user
+###
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+"username": "user",
+"email": "user@user.com",
+"password": "qwerty",
+"role": ["user"]
+}
+###
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+"username": "admin",
+"email": "admin@admin.com",
+"password": "qwerty",
+"role": ["user", "admin"]
+}
+###
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "qwerty"
+}
+###
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "qwerty"
+}
+###
+GET http://localhost:8080/api/test/user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYwOTQyMDMyNSwiZXhwIjoxNjA5NTA2NzI1fQ.hXE7rnl84tfGMAbkvVLxkGhtxGOlkCpUtnGH_jZXHo_qYUgG14pgoj3DBtg5BCYY47WdJNhqNnESXtMBkGq3zg
+###
+GET http://localhost:8080/api/test/admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYwOTQyMDMyNSwiZXhwIjoxNjA5NTA2NzI1fQ.hXE7rnl84tfGMAbkvVLxkGhtxGOlkCpUtnGH_jZXHo_qYUgG14pgoj3DBtg5BCYY47WdJNhqNnESXtMBkGq3zg
+###
 #Users
 #get all users
 GET {{host-url}}/users

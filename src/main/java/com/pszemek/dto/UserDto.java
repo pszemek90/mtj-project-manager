@@ -3,7 +3,7 @@ package com.pszemek.dto;
 import java.util.UUID;
 
 public class UserDto {
-    private UUID uuid;
+    private String uuid;
     private String firstName;
     private String lastName;
     private String email;
@@ -18,11 +18,11 @@ public class UserDto {
         return this;
     }
 
-    public UUID getUuid() {
+    public String getUuid() {
         return uuid;
     }
 
-    public UserDto setUuid(UUID uuid) {
+    public UserDto setUuid(String uuid) {
         this.uuid = uuid;
         return this;
     }
