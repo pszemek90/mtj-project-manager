@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -37,7 +38,7 @@ public class MessageMapper {
 
     public static MessageEntity mapToEntity(MessageDto dto){
         return new MessageEntity()
-                .setUuid(dto.getUuid())
+                .setUuid(dto.getUuid().isEmpty() ? UUID.randomUUID().toString() : dto.getUuid())
                 .setTitle(dto.getTitle())
                 .setText(dto.getText())
                 .setCategory(dto.getCategory())

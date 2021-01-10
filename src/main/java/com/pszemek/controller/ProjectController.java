@@ -37,7 +37,7 @@ public class ProjectController {
     }
 
     @GetMapping("/api/projects/{id}/messages/{messageId}")
-    public MessageDto getMessage(@PathVariable String id, @PathVariable String messageId){
+    public MessageDto getMessage(@PathVariable String id, @PathVariable String messageId) {
         return MessageMapper.mapToDto(projectService.getMessageById(messageId));
     }
 
@@ -57,22 +57,18 @@ public class ProjectController {
     public ProjectDto updateProject(@PathVariable String id, @RequestBody ProjectDto project) {
         ProjectEntity existingProject = projectService.getProjectById(id);
         ProjectEntity updatedProject = ProjectMapper.mapToEntity(project);
+        updatedProject.getCategories().removeIf(category -> categoryExists(existingProject, category));
         for (CategoryEntity category : updatedProject.getCategories()) {
-            if (!categoryExists(existingProject, category)) {
-                existingProject.getCategories().add(category);
-            }
+            existingProject.getCategories().add(category);
             category.setProject(existingProject);
         }
 
-        existingProject.getCategories().removeIf(category -> !categoryExists(updatedProject, category));
 
+        updatedProject.getMessages().removeIf(message -> messageExists(existingProject, message));
         for (MessageEntity message : updatedProject.getMessages()) {
-            if (message.getUuid() == null) {
-                existingProject.getMessages().add(message);
-            }
+            existingProject.getMessages().add(message);
         }
 
-        existingProject.getMessages().removeIf(message -> !messageExists(updatedProject, message));
         projectService.create(existingProject);
         return project;
     }
