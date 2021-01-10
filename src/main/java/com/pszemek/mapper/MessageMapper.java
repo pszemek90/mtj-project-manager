@@ -38,11 +38,11 @@ public class MessageMapper {
 
     public static MessageEntity mapToEntity(MessageDto dto){
         return new MessageEntity()
-                .setUuid(dto.getUuid().isEmpty() ? UUID.randomUUID().toString() : dto.getUuid())
+                .setUuid(dto.getUuid() == null ? UUID.randomUUID() : dto.getUuid())
                 .setTitle(dto.getTitle())
                 .setText(dto.getText())
                 .setCategory(dto.getCategory())
-                .setProject(projectService.getProjectById(dto.getProject()))
+                .setProject(projectService.getProjectByUuid(UUID.fromString(dto.getProject())))
                 .setDate(dto.getDate());
     }
 

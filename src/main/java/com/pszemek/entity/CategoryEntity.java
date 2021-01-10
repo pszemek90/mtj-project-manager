@@ -1,5 +1,8 @@
 package com.pszemek.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -7,23 +10,23 @@ import java.util.UUID;
 @Table(name = "categories")
 public class CategoryEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String uuid = UUID.randomUUID().toString();
+    @Type(type = "uuid-char")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID uuid;
     private String title;
     @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "id")
+    @JoinColumn(name = "project_id", referencedColumnName = "uuid")
     private ProjectEntity project;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public CategoryEntity setUuid(String uuid) {
+    public CategoryEntity setUuid(UUID uuid) {
         this.uuid = uuid;
         return this;
     }

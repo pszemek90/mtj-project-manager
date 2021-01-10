@@ -1,5 +1,8 @@
 package com.pszemek.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
@@ -8,15 +11,19 @@ import java.util.UUID;
 @Table(name = "messages")
 public class MessageEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String uuid = UUID.randomUUID().toString();
+    @Type(type = "uuid-char")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID uuid;
     private String title;
     private String text;
     private Long date;
     private String category;
     @ManyToOne
-    @JoinColumn(name = "project_id", referencedColumnName = "id")
+    @JoinColumn(name = "project_id", referencedColumnName = "uuid")
     private ProjectEntity project;
 
     public Long getDate() {
@@ -28,15 +35,11 @@ public class MessageEntity {
         return this;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public MessageEntity setUuid(String uuid) {
+    public MessageEntity setUuid(UUID uuid) {
         this.uuid = uuid;
         return this;
     }

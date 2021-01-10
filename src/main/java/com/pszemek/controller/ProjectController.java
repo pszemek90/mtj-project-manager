@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -31,19 +32,19 @@ public class ProjectController {
         return sortedProjects;
     }
 
-    @GetMapping("/api/projects/{id}")
-    public ProjectDto getProjectById(@PathVariable String id) {
-        return ProjectMapper.mapToDto(projectService.getProjectById(id));
+    @GetMapping("/api/projects/{uuid}")
+    public ProjectDto getProjectById(@PathVariable UUID uuid) {
+        return ProjectMapper.mapToDto(projectService.getProjectByUuid(uuid));
     }
 
-    @GetMapping("/api/projects/{id}/messages/{messageId}")
-    public MessageDto getMessage(@PathVariable String id, @PathVariable String messageId) {
-        return MessageMapper.mapToDto(projectService.getMessageById(messageId));
+    @GetMapping("/api/projects/{id}/messages/{messageUuid}")
+    public MessageDto getMessage(@PathVariable String id, @PathVariable UUID messageUuid) {
+        return MessageMapper.mapToDto(projectService.getMessageById(messageUuid));
     }
 
-    @DeleteMapping("/api/projects/{id}")
-    public void deleteProject(@PathVariable String id) {
-        projectService.delete(id);
+    @DeleteMapping("/api/projects/{uuid}")
+    public void deleteProject(@PathVariable UUID uuid) {
+        projectService.delete(uuid);
     }
 
     @PostMapping("/api/projects/add")
@@ -53,9 +54,9 @@ public class ProjectController {
         return project;
     }
 
-    @PutMapping("/api/projects/{id}")
-    public ProjectDto updateProject(@PathVariable String id, @RequestBody ProjectDto project) {
-        ProjectEntity existingProject = projectService.getProjectById(id);
+    @PutMapping("/api/projects/{uuid}")
+    public ProjectDto updateProject(@PathVariable UUID uuid, @RequestBody ProjectDto project) {
+        ProjectEntity existingProject = projectService.getProjectByUuid(uuid);
         ProjectEntity updatedProject = ProjectMapper.mapToEntity(project);
         updatedProject.getCategories().removeIf(category -> categoryExists(existingProject, category));
         for (CategoryEntity category : updatedProject.getCategories()) {

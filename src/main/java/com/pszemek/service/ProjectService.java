@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 @Service
 public class ProjectService {
@@ -29,7 +30,7 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public ProjectEntity getProjectById(String uuid){
+    public ProjectEntity getProjectByUuid(UUID uuid){
         return projectRepository.findByUuid(uuid);
     }
 
@@ -37,7 +38,7 @@ public class ProjectService {
         return projectRepository.saveAndFlush(project);
     }
 
-    public void delete(String uuid){
+    public void delete(UUID uuid){
         ProjectEntity project = projectRepository.findByUuid(uuid);
         Set<MessageEntity> projectMessages = project.getMessages();
         for(MessageEntity messageEntity : projectMessages){
@@ -51,7 +52,7 @@ public class ProjectService {
         return Optional.ofNullable(categoryRepository.findFirstByTitle(title));
     }
 
-    public MessageEntity getMessageById(String uuid){
+    public MessageEntity getMessageById(UUID uuid){
         return messageRepository.findByUuid(uuid);
     }
 }

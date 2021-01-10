@@ -32,17 +32,17 @@ public class CategoryMapper {
                 .map(CategoryMapper::mapToDto)
                 .collect(Collectors.toCollection(TreeSet::new));
     }
-
+/* czy te metody są w ogóle potrzebne?
     public static CategoryEntity mapToEntity(CategoryDto dto){
         return new CategoryEntity()
                 .setUuid(dto.getUuid())
                 .setTitle(dto.getTitle())
-                .setProject(projectService.getProjectById(dto.getProject()));
+                .setProject(projectService.getProjectByNumber(dto.getProject()));
     }
 
     public static Set<CategoryEntity> mapToEntity(Set<CategoryDto> dtos){
         return dtos.stream()
                 .map(CategoryMapper::mapToEntity)
                 .collect(Collectors.toSet());
-    }
+    }*/
 }

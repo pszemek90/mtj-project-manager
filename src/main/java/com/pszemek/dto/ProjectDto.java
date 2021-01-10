@@ -1,20 +1,21 @@
 package com.pszemek.dto;
 
 import java.util.TreeSet;
+import java.util.UUID;
 
 public class ProjectDto {
-    private String uuid;
+    private UUID uuid;
     private String number;
     private String title;
     private String customer;
     private TreeSet<String> categories;
     private TreeSet<MessageDto> messages;
 
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public ProjectDto setUuid(String uuid) {
+    public ProjectDto setUuid(UUID uuid) {
         this.uuid = uuid;
         return this;
     }

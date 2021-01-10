@@ -1,6 +1,8 @@
 package com.pszemek.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -12,9 +14,13 @@ import java.util.UUID;
 @Table(name = "projects")
 public class ProjectEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String uuid = UUID.randomUUID().toString();
+    @Type(type = "uuid-char")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID uuid;
     private String number;
     private String title;
     private String customer;
@@ -25,15 +31,11 @@ public class ProjectEntity {
     @OneToMany(mappedBy = "project", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private Set<MessageEntity> messages;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public ProjectEntity setUuid(String uuid) {
+    public ProjectEntity setUuid(UUID uuid) {
         this.uuid = uuid;
         return this;
     }

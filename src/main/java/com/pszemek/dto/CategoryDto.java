@@ -1,7 +1,9 @@
 package com.pszemek.dto;
 
+import java.util.UUID;
+
 public class CategoryDto implements Comparable<CategoryDto> {
-    private String uuid;
+    private UUID uuid;
     private String title;
     private String project;
 
@@ -14,11 +16,11 @@ public class CategoryDto implements Comparable<CategoryDto> {
         return this;
     }
 
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public CategoryDto setUuid(String uuid) {
+    public CategoryDto setUuid(UUID uuid) {
         this.uuid = uuid;
         return this;
     }
