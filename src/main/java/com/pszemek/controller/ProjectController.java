@@ -8,6 +8,7 @@ import com.pszemek.entity.ProjectEntity;
 import com.pszemek.mapper.MessageMapper;
 import com.pszemek.mapper.ProjectMapper;
 import com.pszemek.service.ProjectService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
@@ -16,45 +17,51 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*")
-//@RequestMapping("/api/projects")
+@RequestMapping("/api/projects")
 public class ProjectController {
 
-    private ProjectService projectService;
+    private final ProjectService projectService;
 
     public ProjectController(ProjectService projectService) {
         this.projectService = projectService;
     }
 
-    @GetMapping("/api/projects")
+    @GetMapping()
+    @PreAuthorize("hasRole('USER')")
     public List<ProjectDto> getProjects() {
         List<ProjectDto> sortedProjects = ProjectMapper.mapToDto(projectService.getAll());
         sortedProjects.sort(Comparator.comparing(ProjectDto::getNumber));
         return sortedProjects;
     }
 
-    @GetMapping("/api/projects/{uuid}")
+    @GetMapping("/{uuid}")
+    @PreAuthorize("hasRole('USER')")
     public ProjectDto getProjectById(@PathVariable UUID uuid) {
         return ProjectMapper.mapToDto(projectService.getProjectByUuid(uuid));
     }
 
-    @GetMapping("/api/projects/{id}/messages/{messageUuid}")
+    @GetMapping("/{id}/messages/{messageUuid}")
+    @PreAuthorize("hasRole('USER')")
     public MessageDto getMessage(@PathVariable String id, @PathVariable UUID messageUuid) {
         return MessageMapper.mapToDto(projectService.getMessageById(messageUuid));
     }
 
-    @DeleteMapping("/api/projects/{uuid}")
+    @DeleteMapping("/{uuid}")
+    @PreAuthorize("hasRole('MOD')")
     public void deleteProject(@PathVariable UUID uuid) {
         projectService.delete(uuid);
     }
 
-    @PostMapping("/api/projects/add")
+    @PostMapping("/add")
+    @PreAuthorize("hasRole('MOD')")
     public ProjectDto createProject(@RequestBody ProjectDto project) {
         ProjectEntity projectEntity = ProjectMapper.mapToEntity(project);
         projectService.create(projectEntity);
         return project;
     }
 
-    @PutMapping("/api/projects/{uuid}")
+    @PutMapping("/{uuid}")
+    @PreAuthorize("hasRole('MOD')")
     public ProjectDto updateProject(@PathVariable UUID uuid, @RequestBody ProjectDto project) {
         ProjectEntity existingProject = projectService.getProjectByUuid(uuid);
         ProjectEntity updatedProject = ProjectMapper.mapToEntity(project);

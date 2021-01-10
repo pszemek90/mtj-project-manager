@@ -62,10 +62,13 @@ public class DbSeeder implements CommandLineRunner {
 
         RoleEntity userRole = new RoleEntity()
                 .setName(RoleEnum.ROLE_USER);
+        RoleEntity modRole = new RoleEntity()
+                .setName(RoleEnum.ROLE_MOD);
         RoleEntity adminRole = new RoleEntity()
                 .setName(RoleEnum.ROLE_ADMIN);
 
         roleRepository.save(userRole);
+        roleRepository.save(modRole);
         roleRepository.save(adminRole);
 
         UserEntity user = new UserEntity()
@@ -74,13 +77,20 @@ public class DbSeeder implements CommandLineRunner {
                 .setRoles(Stream.of(userRole).collect(Collectors.toCollection(HashSet::new)))
                 .setEmail("user@user.com");
 
+        UserEntity mod = new UserEntity()
+                .setUsername("mod")
+                .setPassword(encoder.encode("qwerty"))
+                .setRoles(Stream.of(userRole, modRole).collect(Collectors.toCollection(HashSet::new)))
+                .setEmail("mod@mod.com");
+
         UserEntity admin = new UserEntity()
                 .setUsername("admin")
                 .setPassword(encoder.encode("qwerty"))
-                .setRoles(Stream.of(userRole, adminRole).collect(Collectors.toCollection(HashSet::new)))
+                .setRoles(Stream.of(userRole, modRole, adminRole).collect(Collectors.toCollection(HashSet::new)))
                 .setEmail("admin@user.com");
 
         userRepository.save(user);
+        userRepository.save(mod);
         userRepository.save(admin);
 
 
