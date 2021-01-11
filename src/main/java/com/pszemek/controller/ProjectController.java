@@ -65,6 +65,7 @@ public class ProjectController {
     public ProjectDto updateProject(@PathVariable UUID uuid, @RequestBody ProjectDto project) {
         ProjectEntity existingProject = projectService.getProjectByUuid(uuid);
         ProjectEntity updatedProject = ProjectMapper.mapToEntity(project);
+        existingProject.getCategories().removeIf(category -> !categoryExists(updatedProject, category));
         updatedProject.getCategories().removeIf(category -> categoryExists(existingProject, category));
         for (CategoryEntity category : updatedProject.getCategories()) {
             existingProject.getCategories().add(category);
@@ -72,6 +73,7 @@ public class ProjectController {
         }
 
 
+        existingProject.getMessages().removeIf(message -> !messageExists(updatedProject, message));
         updatedProject.getMessages().removeIf(message -> messageExists(existingProject, message));
         for (MessageEntity message : updatedProject.getMessages()) {
             existingProject.getMessages().add(message);
