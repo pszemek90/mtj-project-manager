@@ -61,11 +61,11 @@ public class DbSeeder implements CommandLineRunner {
         messageRepository.save(messageEntity);
 
         RoleEntity userRole = new RoleEntity()
-                .setName(RoleEnum.ROLE_USER);
+                .setRoleName(RoleEnum.ROLE_USER);
         RoleEntity modRole = new RoleEntity()
-                .setName(RoleEnum.ROLE_MOD);
+                .setRoleName(RoleEnum.ROLE_MOD);
         RoleEntity adminRole = new RoleEntity()
-                .setName(RoleEnum.ROLE_ADMIN);
+                .setRoleName(RoleEnum.ROLE_ADMIN);
 
         roleRepository.save(userRole);
         roleRepository.save(modRole);

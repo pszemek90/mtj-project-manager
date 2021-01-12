@@ -1,5 +1,8 @@
 package com.pszemek.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,9 +12,13 @@ import java.util.UUID;
 @Table(name = "users")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String uuid = UUID.randomUUID().toString();
+    @Type(type = "uuid-char")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID uuid;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -27,21 +34,11 @@ public class UserEntity {
     )
     private Set<RoleEntity> roles = new HashSet<>();
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public UserEntity setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 
-    public UserEntity setUuid(String uuid) {
+    public UserEntity setUuid(UUID uuid) {
         this.uuid = uuid;
         return this;
     }

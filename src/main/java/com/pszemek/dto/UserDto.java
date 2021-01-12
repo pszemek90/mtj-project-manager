@@ -1,13 +1,43 @@
 package com.pszemek.dto;
 
+import java.util.Set;
 import java.util.UUID;
 
 public class UserDto {
-    private String uuid;
+    private UUID uuid;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
+    private String username;
+    private Set<String> roles;
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public UserDto setUuid(UUID uuid) {
+        this.uuid = uuid;
+        return this;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public UserDto setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public UserDto setRoles(Set<String> roles) {
+        this.roles = roles;
+        return this;
+    }
 
     public String getPassword() {
         return password;
@@ -15,15 +45,6 @@ public class UserDto {
 
     public UserDto setPassword(String password) {
         this.password = password;
-        return this;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public UserDto setUuid(String uuid) {
-        this.uuid = uuid;
         return this;
     }
 

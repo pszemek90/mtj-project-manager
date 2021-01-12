@@ -1,18 +1,19 @@
 package com.pszemek.payload.response;
 
 import java.util.List;
+import java.util.UUID;
 
 public class JwtResponse {
     private String token;
     private String type = "Bearer";
-    private Long id;
+    private UUID uuid;
     private String username;
     private String email;
     private List<String> roles;
 
-    public JwtResponse(String token, Long id, String username, String email, List<String> roles) {
+    public JwtResponse(String token, UUID uuid, String username, String email, List<String> roles) {
         this.token = token;
-        this.id = id;
+        this.uuid = uuid;
         this.username = username;
         this.email = email;
         this.roles = roles;
@@ -36,12 +37,12 @@ public class JwtResponse {
         return this;
     }
 
-    public Long getId() {
-        return id;
+    public UUID getUuid() {
+        return uuid;
     }
 
-    public JwtResponse setId(Long id) {
-        this.id = id;
+    public JwtResponse setUuid(UUID uuid) {
+        this.uuid = uuid;
         return this;
     }
 

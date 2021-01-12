@@ -9,20 +9,21 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
 
     private static final long serialVersionUID = 1L;
-    private Long id;
+    private UUID uuid;
     private String username;
     private String email;
     @JsonIgnore
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
+    public UserDetailsImpl(UUID uuid, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+        this.uuid = uuid;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -31,10 +32,10 @@ public class UserDetailsImpl implements UserDetails {
 
     public static UserDetailsImpl build(UserEntity user){
         List<GrantedAuthority> authorities = user.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName().name()))
+                .map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
                 .collect(Collectors.toList());
         return new UserDetailsImpl(
-                user.getId(),
+                user.getUuid(),
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
@@ -42,8 +43,8 @@ public class UserDetailsImpl implements UserDetails {
         );
     }
 
-    public Long getId() {
-        return id;
+    public UUID getUuid() {
+        return uuid;
     }
 
     public String getEmail() {
@@ -94,6 +95,6 @@ public class UserDetailsImpl implements UserDetails {
             return false;
         }
         UserDetailsImpl user = (UserDetailsImpl) obj;
-        return Objects.equals(id, user.id);
+        return Objects.equals(uuid, user.uuid);
     }
 }

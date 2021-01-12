@@ -9,17 +9,17 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private UserRepository repository;
+    private final UserRepository userRepository;
 
-    public UserService(UserRepository repository) {
-        this.repository = repository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public List<UserEntity> getAll(){
-        return repository.findAll();
+        return userRepository.findAll();
     }
 
     public UserEntity create(UserEntity user){
-        return repository.saveAndFlush(user);
+        return userRepository.saveAndFlush(user);
     }
 }
