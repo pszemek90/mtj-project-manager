@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/projects")
 public class ProjectController {
 
@@ -52,7 +52,7 @@ public class ProjectController {
         projectService.delete(uuid);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add-project")
     @PreAuthorize("hasRole('MOD')")
     public ProjectDto createProject(@RequestBody ProjectDto project) {
         ProjectEntity projectEntity = ProjectMapper.mapToEntity(project);
