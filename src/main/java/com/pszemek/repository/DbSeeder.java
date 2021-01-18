@@ -89,10 +89,15 @@ public class DbSeeder implements CommandLineRunner {
                 .setRoles(Stream.of(userRole, modRole, adminRole).collect(Collectors.toCollection(HashSet::new)))
                 .setEmail("admin@user.com");
 
+        UserEntity marek = new UserEntity()
+                .setUsername("marek")
+                .setPassword(encoder.encode("marek"))
+                .setRoles(Stream.of(userRole, modRole, adminRole).collect(Collectors.toCollection(HashSet::new)))
+                .setEmail("marek@marek.pl");
+
         userRepository.save(user);
         userRepository.save(mod);
         userRepository.save(admin);
-
-
+        userRepository.save(marek);
     }
 }
