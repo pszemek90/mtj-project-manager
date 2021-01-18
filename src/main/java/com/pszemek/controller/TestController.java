@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
+    @GetMapping
+    public String testAccess(){
+        return "hello";
+    }
     @GetMapping("/all")
     public String allAccess() {
         return "Public content";
