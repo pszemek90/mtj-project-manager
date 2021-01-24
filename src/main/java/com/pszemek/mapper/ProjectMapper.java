@@ -53,7 +53,7 @@ public class ProjectMapper {
                 .setCustomer(dto.getCustomer())
                 .setCategories(dto.getCategories()
                         .stream()
-                        .map(category -> projectService.getCategoryByTitle(category).orElse(new CategoryEntity().setTitle(category)))
+                        .map(category -> new CategoryEntity().setTitle(category))
                         .collect(Collectors.toSet()))
                 .setMessages(MessageMapper.mapToEntity(dto.getMessages()));
     }

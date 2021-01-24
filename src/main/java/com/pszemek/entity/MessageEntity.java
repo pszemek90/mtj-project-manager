@@ -4,7 +4,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -25,6 +27,17 @@ public class MessageEntity {
     @ManyToOne
     @JoinColumn(name = "project_id", referencedColumnName = "uuid")
     private ProjectEntity project;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "message")
+    private Set<MessageTagsEntity> tags;
+
+    public Set<MessageTagsEntity> getTags() {
+        return Objects.requireNonNullElseGet(tags, HashSet::new);
+    }
+
+    public MessageEntity setTags(Set<MessageTagsEntity> tags) {
+        this.tags = tags;
+        return this;
+    }
 
     public Long getDate() {
         return date;

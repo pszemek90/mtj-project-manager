@@ -1,5 +1,6 @@
 package com.pszemek.dto;
 
+import java.util.Set;
 import java.util.UUID;
 
 public class MessageDto implements Comparable<MessageDto> {
@@ -9,6 +10,16 @@ public class MessageDto implements Comparable<MessageDto> {
     private String category;
     private String project;
     private Long date;
+    private Set<String> tags;
+
+    public Set<String> getTags() {
+        return tags;
+    }
+
+    public MessageDto setTags(Set<String> tags) {
+        this.tags = tags;
+        return this;
+    }
 
     public Long getDate() {
         return date;

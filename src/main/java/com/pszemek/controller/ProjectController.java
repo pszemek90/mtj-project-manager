@@ -77,6 +77,7 @@ public class ProjectController {
         updatedProject.getMessages().removeIf(message -> messageExists(existingProject, message));
         for (MessageEntity message : updatedProject.getMessages()) {
             existingProject.getMessages().add(message);
+            message.getTags().forEach(tag -> tag.setMessage(message));
         }
 
         projectService.create(existingProject);

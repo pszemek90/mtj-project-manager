@@ -8,5 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface MessageRepository extends JpaRepository<MessageEntity, UUID> {
-    public MessageEntity findByUuid(UUID uuid);
+    MessageEntity findByUuid(UUID uuid);
 }
